@@ -185,7 +185,8 @@ int main()
         transform = glm::mat4(); // reset it to an identity matrix
         transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
         float scaleAmount = sin(glfwGetTime());
-        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+		//glm::scale(transform, glm::vec3(scaleAmountx, scaleAmounty, scaleAmountz));
+        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, 10*scaleAmount));
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]); // this time take the matrix value array's first element as its memory pointer value
 
         // now with the uniform matrix being replaced with new transformations, draw it again.

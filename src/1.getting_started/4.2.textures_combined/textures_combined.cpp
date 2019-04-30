@@ -146,7 +146,8 @@ int main()
     // either set it manually like so:
     glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
     // or set it via the texture class
-    ourShader.setInt("texture2", 1);
+	ourShader.setInt("texture2", 1);//glUniform1i(glGetUniformLocation(ourShader.ID, "texture2"), 1);
+
 
 
 

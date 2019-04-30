@@ -173,7 +173,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         // set the texture mix value in the shader
-        ourShader.setFloat("mixValue", mixValue);
+        ourShader.setFloat("mixValue", mixValue);//glUniform1f(glGetUniformLocation(ID, name.c_str()), value); 
 
         // render container
         ourShader.use();

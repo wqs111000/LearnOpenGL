@@ -167,13 +167,14 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         // create transformations
-        glm::mat4 transform;
+        glm::mat4 transform; //如果使用的是0.9.9及以上版本,需改为glm::mat4 trans = glm::mat4(1.0f)
         transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
         // get matrix's uniform location and set matrix
         ourShader.use();
         unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+		//glUniformMatrix4fvd:第一个参数你现在应该很熟悉了，它是uniform的位置值。第二个参数告诉OpenGL我们将要发送多少个矩阵，这里是1。第三个参数询问我们我们是否希望对我们的矩阵进行置换(Transpose)，也就是说交换我们矩阵的行和列。OpenGL开发者通常使用一种内部矩阵布局，叫做列主序(Column-major Ordering)布局。GLM的默认布局就是列主序
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
 
         // render container
